@@ -1,4 +1,4 @@
-import pyirsdk as irsdk
+import irsdk
 
 def calculate_slip_angle(data):
     # Get driver telemetry variables
@@ -16,16 +16,17 @@ def calculate_slip_angle(data):
 
     return slip_angle
 
+
 def main():
-    iRacing = irsdk.IRSDK()
-    iRacing.startup()
+    ir = irsdk.IRSDK()
+    ir.startup()
 
     while True:
-        if iRacing.is_initialized() and iRacing.is_connected():
+        if ir.is_initialized() and ir.is_connected():
             # Check if car is on track
-            if iRacing['IsOnTrack'] == 1:
-                data = iRacing.get_session_data()
-                slip_angle = calculate_slip_angle(data)
+            if ir['IsOnTrack'] == 1:
+                data = ir.get_session_data()
+                slip_angle = iracing_slip_tool.calculate_slip_angle(data)
 
                 # Display slip angle
                 print(f"Slip Angle: {slip_angle:.2f} degrees")
@@ -33,7 +34,7 @@ def main():
         # Sleep to avoid overloading the CPU
         time.sleep(0.05)
 
-    iRacing.shutdown()
+    ir.shutdown()
 
 if __name__ == '__main__':
     main()

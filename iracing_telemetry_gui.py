@@ -44,8 +44,8 @@ class TelemetryWindow(QMainWindow):
         grid.addWidget(wheel_slip_value, 7, 1)
         grid.addWidget(brake_label, 8, 0)
         grid.addWidget(brake_value, 8, 1)
-        grid.addWidget(throttle_label, 8, 0)
-        grid.addWidget(throttle_value, 8, 1)
+        grid.addWidget(throttle_label, 9, 0)
+        grid.addWidget(throttle_value, 9, 1)
 
         frame = QFrame()
         frame.setLayout(grid)

@@ -1,6 +1,6 @@
 import sys
 import pyqtgraph as pg
-from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QGridLayout, QFrame, QVBoxLayout, QHBoxLayout, QMainWindow
+from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QGridLayout, QFrame, QVBoxLayout, QHBoxLayout, QMainWindow, QPushButton
 from PyQt5.QtGui import QIcon
 
 class TelemetryWindow(QMainWindow):
@@ -29,19 +29,23 @@ class TelemetryWindow(QMainWindow):
         throttle_label = QLabel("Throttle Percent:")
         throttle_value = QLabel("0%")
 
+        # Buttons
+        start_button = QPushButton("Open File")
+
         # Grid
         grid = QGridLayout()
-        grid.addWidget(graph1, 0, 0, 1, 3)
-        grid.addWidget(graph2, 1, 0, 1, 3)
-        grid.addWidget(graph3, 2, 0, 1, 3)
-        grid.addWidget(graph4, 3, 0, 1, 3)
-        grid.addWidget(graph5, 4, 0, 1, 3)
+        grid.addWidget(graph1, 0, 0, 1, 4)
+        grid.addWidget(graph2, 1, 0, 1, 4)
+        grid.addWidget(graph3, 2, 0, 1, 4)
+        grid.addWidget(graph4, 3, 0, 1, 4)
+        grid.addWidget(graph5, 4, 0, 1, 4)
         grid.addWidget(slip_label, 5, 0)
         grid.addWidget(slip_value, 5, 1)
         grid.addWidget(k_label, 6, 0)
         grid.addWidget(k_value, 6, 1)
         grid.addWidget(wheel_slip_label, 7, 0)
         grid.addWidget(wheel_slip_value, 7, 1)
+        grid.addWidget(start_button, 7, 3)
         grid.addWidget(brake_label, 8, 0)
         grid.addWidget(brake_value, 8, 1)
         grid.addWidget(throttle_label, 9, 0)
